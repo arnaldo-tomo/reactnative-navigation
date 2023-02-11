@@ -1,10 +1,13 @@
-import  React  from 'react';
-import { View } from 'react-native';
+import {React}  from 'react';
+import { View,Button,Text } from 'react-native';
 
-export default function ScreensB({Navigation}) {
+export default function ScreensB({ navigation,route }) {
+    let { idade,nome } = route.params;
     return (
         <View>
-            ScreensB 
+            <Text>{idade}</Text>
+            <Text>{nome}</Text>
+            <Button title="Go back" onPress={() => navigation.goBack()} />
         </View>
     )
 
