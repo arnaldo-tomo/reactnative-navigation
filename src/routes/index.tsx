@@ -6,12 +6,15 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ScreensA from '../screens/ScreensA';
 import ScreensB from '../screens/ScreensB';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { NativeBaseProvider, Box, FormControl, Input, Button } from "native-base";
 const Tab = createBottomTabNavigator();
 function HomeScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
-    </View>
+    <NativeBaseProvider>
+      <Box alignItems="center">
+        <Button onPress={() => console.log("hello world")}>Click Me</Button>
+      </Box>
+    </NativeBaseProvider>
   );
 }
 
@@ -19,7 +22,7 @@ function HomeScreen() {
 const Stack = createNativeStackNavigator();
 
 export default function Routes() {
-return (
+  return (
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({ route }) => ({
@@ -33,13 +36,13 @@ return (
             } else if (route.name === 'Settings') {
               iconName = focused ? 'ios-list' : 'ios-list-outline';
             } else {
-               iconName = focused ? 'ios-filter' : 'ios-filter-outline';
+              iconName = focused ? 'ios-filter' : 'ios-filter-outline';
             }
 
             // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: 'tomato',
+          tabBarActiveTintColor: 'purple',
           tabBarInactiveTintColor: 'gray',
         })}
       >
