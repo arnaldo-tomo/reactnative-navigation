@@ -1,10 +1,9 @@
-import React from "react";
-import { View } from "react-native";
+import { View,Button } from "react-native";
 
-export default function ScreensA() {
+export default function ScreensA({ navigation}) {
     return (
         <View>
-          ScreensA
+        <Button  title="Update the title" onPress={() => navigation.push('Details')}/>
         </View>
     )
     
